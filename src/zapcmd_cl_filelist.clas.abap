@@ -1026,6 +1026,8 @@ CLASS zapcmd_cl_filelist IMPLEMENTATION.
 
   METHOD handle_drop.
 
+    DATA ls_fileinfo    TYPE zapcmd_file_descr.
+    DATA lo_knot        TYPE REF TO zapcmd_cl_knot.
     DATA lo_dir         TYPE REF TO zapcmd_cl_dir.
     DATA lo_destination TYPE REF TO zapcmd_cl_dir.
     DATA lo_list        TYPE REF TO zapcmd_cl_knotlist.
@@ -1040,12 +1042,13 @@ CLASS zapcmd_cl_filelist IMPLEMENTATION.
         RETURN.
     ENDTRY.
 
-    DATA(lo_files) = get_selected_files( e_row ).
+    READ TABLE ct_fileinfo INDEX e_row-index INTO ls_fileinfo.
+    READ TABLE ct_files INDEX ls_fileinfo-indx INTO lo_knot.
 
-    IF lo_files IS BOUND AND lo_files->ct_list IS NOT INITIAL.
+    IF lo_knot IS BOUND.
 
       TRY.
-          lo_dir ?= lo_files->ct_list[ 1 ].
+          lo_dir ?= lo_knot.
         CATCH cx_sy_move_cast_error.
           CLEAR lo_dir.
       ENDTRY.
@@ -1067,8 +1070,8 @@ CLASS zapcmd_cl_filelist IMPLEMENTATION.
 
       CASE lines( lo_list->ct_list ).
         WHEN 0.
-        e_dragdropobj->abort( ).
-        RETURN.
+          e_dragdropobj->abort( ).
+          RETURN.
 
         WHEN 1.
           lv_file_ask = lo_list->ct_list[ 1 ]->name.

@@ -839,7 +839,6 @@ CLASS zapcmd_cl_filelist IMPLEMENTATION.
 
   METHOD get_title.
 
-
 *      case cf_ref_dir->SERVER_AREA.
 *        when 'A'. lf_areastring = 'Appl. Serv.'(014).
 *        when 'P'. lf_areastring = 'Frontend'(015).
@@ -859,18 +858,10 @@ CLASS zapcmd_cl_filelist IMPLEMENTATION.
           pf_size     = lf_space
         IMPORTING
           pfx_sizestr = lf_spacestr.
-
-      CONCATENATE
-        '<' cf_ref_dir->area_string '>°'
-        cf_ref_dir->full_name ' (' lf_spacestr ' frei)'
-        INTO pf_title.
+        pf_title = |<{ cf_ref_dir->area_string }> { cf_ref_dir->full_name } ({ condense( lf_spacestr ) } { 'free'(512) })|.
     ELSE.
-      CONCATENATE
-        '<' cf_ref_dir->area_string '>°'
-        cf_ref_dir->full_name
-        INTO pf_title.
+        pf_title = |<{ cf_ref_dir->area_string }> { cf_ref_dir->full_name }|.
     ENDIF.
-    TRANSLATE pf_title USING '° '.
 
   ENDMETHOD.
 

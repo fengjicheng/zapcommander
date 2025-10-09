@@ -6,10 +6,10 @@
     <ROLLNAME>ZAPCMD_SHORTNAME</ROLLNAME>
     <DDLANGUAGE>E</DDLANGUAGE>
     <DOMNAME>ZAPCMD_FILENAME</DOMNAME>
-    <HEADLEN>26</HEADLEN>
-    <SCRLEN1>04</SCRLEN1>
-    <SCRLEN2>09</SCRLEN2>
-    <SCRLEN3>19</SCRLEN3>
+    <HEADLEN>55</HEADLEN>
+    <SCRLEN1>10</SCRLEN1>
+    <SCRLEN2>20</SCRLEN2>
+    <SCRLEN3>40</SCRLEN3>
     <DDTEXT>Filename without extension</DDTEXT>
     <REPTEXT>Filename without extension</REPTEXT>
     <SCRTEXT_S>Name</SCRTEXT_S>
@@ -20,6 +20,7 @@
    </DD04V>
    <I18N_LANGS>
     <LANGU>D</LANGU>
+    <LANGU>S</LANGU>
    </I18N_LANGS>
    <DD04_TEXTS>
     <item>
@@ -29,6 +30,14 @@
      <SCRTEXT_S>Name</SCRTEXT_S>
      <SCRTEXT_M>Dateiname</SCRTEXT_M>
      <SCRTEXT_L>Dateiname ohne Erw.</SCRTEXT_L>
+    </item>
+    <item>
+     <DDLANGUAGE>S</DDLANGUAGE>
+     <DDTEXT>Nombre del archivo sin extensión</DDTEXT>
+     <REPTEXT>Nombre archivo sin ext.</REPTEXT>
+     <SCRTEXT_S>Nombre</SCRTEXT_S>
+     <SCRTEXT_M>Nombre archivo</SCRTEXT_M>
+     <SCRTEXT_L>Nombre arch s/ ext.</SCRTEXT_L>
     </item>
    </DD04_TEXTS>
   </asx:values>

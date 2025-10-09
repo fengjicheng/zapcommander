@@ -20,6 +20,7 @@
    </DD04V>
    <I18N_LANGS>
     <LANGU>D</LANGU>
+    <LANGU>S</LANGU>
    </I18N_LANGS>
    <DD04_TEXTS>
     <item>
@@ -29,6 +30,14 @@
      <SCRTEXT_S>Art</SCRTEXT_S>
      <SCRTEXT_M>Art (Verz./Datei)</SCRTEXT_M>
      <SCRTEXT_L>Art (Verzeichnis/Datei)</SCRTEXT_L>
+    </item>
+    <item>
+     <DDLANGUAGE>S</DDLANGUAGE>
+     <DDTEXT>Distinción entre directorio y fichero</DDTEXT>
+     <REPTEXT>Distinción entre directorio y fichero</REPTEXT>
+     <SCRTEXT_S>Tipo</SCRTEXT_S>
+     <SCRTEXT_M>Tipo (dir./fichero)</SCRTEXT_M>
+     <SCRTEXT_L>Tipo (directorio/fichero)</SCRTEXT_L>
     </item>
    </DD04_TEXTS>
   </asx:values>

@@ -4,6 +4,7 @@ INTERFACE zapcmd_if_user_exit
   METHODS commander_set_pfstatus.
 
   METHODS commander_create_splitter
+    IMPORTING io_parent     TYPE REF TO cl_gui_container
     RETURNING VALUE(result) TYPE REF TO cl_gui_easy_splitter_container.
 
   METHODS commander_user_command

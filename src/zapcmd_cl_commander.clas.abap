@@ -82,7 +82,7 @@ CLASS ZAPCMD_CL_COMMANDER IMPLEMENTATION.
 
       li_user_exit = zapcmd_cl_user_exit_factory=>get( ).
       IF li_user_exit IS BOUND.
-        cf_gui_splitter_container = li_user_exit->commander_create_splitter( ).
+        cf_gui_splitter_container = li_user_exit->commander_create_splitter( pf_container ).
       ENDIF.
 
       IF cf_gui_splitter_container IS NOT BOUND.

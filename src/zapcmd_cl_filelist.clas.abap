@@ -218,11 +218,13 @@ CLASS zapcmd_cl_filelist IMPLEMENTATION.
 
   METHOD copy.
 
-    DATA lf_file TYPE REF TO zapcmd_cl_knot.
+    DATA lf_file       TYPE REF TO zapcmd_cl_knot.
     DATA lf_sourcefile TYPE REF TO zapcmd_cl_file.
-    DATA lf_destfile TYPE REF TO zapcmd_cl_file.
-    DATA lt_file TYPE zapcmd_tbl_xstring.
-    DATA lf_answer TYPE c.
+    DATA lf_destfile   TYPE REF TO zapcmd_cl_file.
+    DATA lt_file       TYPE zapcmd_tbl_xstring.
+    DATA lf_answer     TYPE c LENGTH 1.
+    DATA lf_filesize   TYPE i.
+
     lf_answer = '1'.
 
     LOOP AT pt_files INTO lf_file
@@ -285,8 +287,9 @@ CLASS zapcmd_cl_filelist IMPLEMENTATION.
           pf_filename = lf_sourcefile->name
         IMPORTING
           pf_file     = lf_destfile.
-
-      DATA lf_filesize TYPE i.
+      IF lf_destfile IS NOT BOUND.
+        CONTINUE.
+      ENDIF.
 
       CALL METHOD lf_sourcefile->read_bin
         IMPORTING
@@ -1325,7 +1328,8 @@ CLASS zapcmd_cl_filelist IMPLEMENTATION.
         li_user_exit = zapcmd_cl_user_exit_factory=>get( ).
         IF li_user_exit IS BOUND.
           li_user_exit->filelist_user_command( iv_function_code = e_ucomm
-                                               io_directory     = cf_ref_dir ).
+                                               io_directory     = cf_ref_dir
+                                               io_filelist      = me ).
         ENDIF.
 
     ENDCASE.

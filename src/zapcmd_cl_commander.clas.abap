@@ -76,14 +76,26 @@ CLASS ZAPCMD_CL_COMMANDER IMPLEMENTATION.
 
   METHOD show.
 
+    DATA li_user_exit TYPE REF TO zapcmd_if_user_exit.
+
     IF cf_gui_splitter_container IS INITIAL.
-      CREATE OBJECT cf_gui_splitter_container
-        EXPORTING
-          parent      = pf_container
-          orientation = cf_gui_splitter_container->orientation_horizontal.
-* get the containers of the splitter control
+
+      li_user_exit = zapcmd_cl_user_exit_factory=>get( ).
+      IF li_user_exit IS BOUND.
+        cf_gui_splitter_container = li_user_exit->commander_create_splitter( ).
+      ENDIF.
+
+      IF cf_gui_splitter_container IS NOT BOUND.
+        CREATE OBJECT cf_gui_splitter_container
+          EXPORTING
+            parent      = pf_container
+            orientation = cf_gui_splitter_container->orientation_horizontal.
+      ENDIF.
+
+      " get the containers of the splitter control
       cf_container_left  = cf_gui_splitter_container->top_left_container.
       cf_container_right = cf_gui_splitter_container->bottom_right_container.
+
     ENDIF.
 
     cf_filesleft->show( cf_container_left ).

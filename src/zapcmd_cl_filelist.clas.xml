@@ -210,6 +210,12 @@
      <ENTRY>to</ENTRY>
      <LENGTH>12</LENGTH>
     </item>
+    <item>
+     <ID>I</ID>
+     <KEY>512</KEY>
+     <ENTRY>free</ENTRY>
+     <LENGTH>14</LENGTH>
+    </item>
    </TPOOL>
    <I18N_TPOOL>
     <item>
@@ -413,6 +419,12 @@
        <ENTRY>zu</ENTRY>
        <LENGTH>12</LENGTH>
       </item>
+      <item>
+       <ID>I</ID>
+       <KEY>512</KEY>
+       <ENTRY>frei</ENTRY>
+       <LENGTH>14</LENGTH>
+      </item>
      </TEXTPOOL>
     </item>
     <item>
@@ -615,6 +627,12 @@
        <KEY>511</KEY>
        <ENTRY>a</ENTRY>
        <LENGTH>12</LENGTH>
+      </item>
+      <item>
+       <ID>I</ID>
+       <KEY>512</KEY>
+       <ENTRY>libre</ENTRY>
+       <LENGTH>14</LENGTH>
       </item>
      </TEXTPOOL>
     </item>

@@ -3,6 +3,9 @@ INTERFACE zapcmd_if_user_exit
 
   METHODS commander_set_pfstatus.
 
+  METHODS commander_create_splitter
+    RETURNING VALUE(result) TYPE REF TO cl_gui_easy_splitter_container.
+
   METHODS commander_user_command
     IMPORTING iv_function_code  TYPE syst_ucomm
               io_filelist_left  TYPE REF TO zapcmd_cl_filelist
@@ -23,6 +26,7 @@ INTERFACE zapcmd_if_user_exit
 
   METHODS filelist_user_command
     IMPORTING iv_function_code TYPE syst_ucomm
-              io_directory     TYPE REF TO zapcmd_cl_dir.
+              io_directory     TYPE REF TO zapcmd_cl_dir
+              io_filelist      TYPE REF TO zapcmd_cl_filelist.
 
 ENDINTERFACE.
